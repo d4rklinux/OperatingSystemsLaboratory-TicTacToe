@@ -1,3 +1,27 @@
+##########################################
+# OS - macOS
+##########################################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+##########################################
+# OS - Windows
+##########################################
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+##########################################
+# Compilazione C/C++
+##########################################
 # Prerequisites
 *.d
 
@@ -22,7 +46,7 @@
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
+# Shared objects (incl. Windows DLLs)
 *.dll
 *.so
 *.so.*
@@ -51,5 +75,88 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# debug information files
+# Debug info
 *.dwo
+
+##########################################
+# Directory di build/output
+##########################################
+build/
+bin/
+lib/
+dist/
+out/
+Debug/
+Release/
+cmake-build-*/
+
+##########################################
+# File temporanei e di backup
+##########################################
+*~
+*.tmp
+*.swp
+*.bak
+*.log
+*.orig
+
+##########################################
+# IDE/Editor Config
+##########################################
+
+# VSCode
+.vscode/
+
+# CLion / JetBrains
+.idea/
+
+# Xcode
+*.xcworkspace
+*.xcuserstate
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Qt Creator
+*.pro.user
+*.qmake.stash
+
+# NetBeans
+nbproject/private/
+
+# Makefile backup
+Makefile~
+
+##########################################
+# Etichette di profiling / coverage
+##########################################
+*.gcno
+*.gcda
+*.gcov
+*.profraw
+*.profdata
+
+##########################################
+# Altri strumenti
+##########################################
+tags
+
+##########################################
+# Docker
+##########################################
+*.tar
+*.img
+docker-compose*.log
+docker-compose.override.yml
+volumes/
+data/
+tmp/
+.docker/
+
+# Mantieni i file principali
+!docker-compose.yml
+!Dockerfile
