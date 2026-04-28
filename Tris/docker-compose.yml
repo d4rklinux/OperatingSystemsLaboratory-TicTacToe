@@ -1,0 +1,31 @@
+services:
+  server:
+    build: .  # Costruisce l'immagine Docker a partire dal Dockerfile nella directory corrente
+    container_name: server  # Nome del container per il servizio server
+    working_dir: /app/server  # Imposta la directory di lavoro nel container
+    command: ./server  # Comando da eseguire all'avvio del container (esegue il server)
+    ports:
+      - "8080:8080"  # Mappa la porta 8080 del container alla porta 8080 dell'host
+                     # Assicura che l'app sia accessibile da fuori tramite localhost:8080
+    networks:
+      - game_network  # Collega il container alla rete definita in fondo al file
+
+  client:
+    build: .  # Usa la stessa immagine del server (compilata da Dockerfile)
+    container_name: tris_client_base  # Nome assegnato al container client di base
+    working_dir: /app/client  # Directory di lavoro dove si trova l'eseguibile del client
+    command: ./client  # Comando da eseguire all’avvio del container (esegue il client)
+    depends_on:
+      - server  # Garantisce che il servizio server venga avviato prima di questo client
+    networks:
+      - game_network  # Collega il client alla stessa rete del server per comunicare tra loro
+    stdin_open: true  # Mantiene lo standard input aperto (utile per input da terminale)
+    tty: true  # Alloca una pseudo-TTY, necessario per l'interazione da terminale
+    environment:
+      SERVER_HOST: server  # Hostname del server (il nome del servizio nel compose)
+      SERVER_PORT: 8080  # Porta sulla quale il server è in ascolto
+
+# Definizione della rete bridge condivisa dai servizi
+networks:
+  game_network:
+    driver: bridge  # Tipo di rete bridge (default), utile per connettere i container tra loro
