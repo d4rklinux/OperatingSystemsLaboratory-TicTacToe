@@ -27,7 +27,7 @@ Questo progetto implementa un gioco del Tris (Tic-Tac-Toe) multi-client utilizza
 
 ## Come Compilare ed Eseguire
 
-Il progetto è progettato per essere compilato ed eseguito utilizzando Docker Compose, che semplifica la configurazione di entrambi i componenti server e client.
+Il progetto può essere compilato ed eseguito utilizzando Docker Compose, che semplifica la configurazione di entrambi i componenti server e client.
 
 ### Prerequisiti
 
